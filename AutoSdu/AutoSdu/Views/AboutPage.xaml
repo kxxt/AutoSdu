@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoSdu.Views.AboutPage"
+             xmlns:vm="clr-namespace:AutoSdu.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label Text="AutoSdu 安卓客户端 by kxxt" FontSize="24"/>
+                        <Label HorizontalOptions="Center" Text="Believers in Science Studio" FontSize="Large"/>
+                    </StackLayout>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="自动化山东大学的一些琐碎事务" FontSize="Title"/>
+                <Label Text="打赏作者" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="项目相关:" FontSize="16" Padding="0,24,0,0"/>
+                <Label Text="Github: github.com/kxxt/PyAutoClockSduIn" FontAttributes="Bold" FontSize="Body"/>
+                <Label Text="Github: github.com/kxxt/PyAutoClockSduIn" FontAttributes="Bold" FontSize="Body"/>
+                <Button Margin="0,10,0,0" Text="GitHub"
+                        Command="{Binding OpenWebCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
