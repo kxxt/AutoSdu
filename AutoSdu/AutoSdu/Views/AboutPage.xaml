@@ -34,10 +34,11 @@
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                 <Label Text="自动化山东大学的一些琐碎事务" FontSize="Title"/>
                 <Label Text="打赏作者" FontSize="16" Padding="0,0,0,0"/>
+                <Image Source="sponsor_qrcode"></Image>
                 <Label Text="项目相关:" FontSize="16" Padding="0,24,0,0"/>
                 <Label Text="Github: github.com/kxxt/PyAutoClockSduIn" FontAttributes="Bold" FontSize="Body"/>
-                <Label Text="Github: github.com/kxxt/PyAutoClockSduIn" FontAttributes="Bold" FontSize="Body"/>
-                <Button Margin="0,10,0,0" Text="GitHub"
+                <Label Text="Github: github.com/kxxt/AutoSdu" FontAttributes="Bold" FontSize="Body"/>
+                <Button Margin="0,10,0,0" Text="作者的 GitHub"
                         Command="{Binding OpenWebCommand}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />

@@ -6,39 +6,48 @@
              xmlns:local="clr-namespace:AutoSdu.ViewModels"  
              xmlns:model="clr-namespace:AutoSdu.Models"  
              x:Name="BrowseItemsPage">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
-    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Item">
-                        <Label Text="{Binding Text}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                        <Label Text="{Binding Description}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </RefreshView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="s_label">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="Grid.Column" Value="0"/>
+                <Setter Property="TextColor" Value="DodgerBlue"></Setter>
+            </Style>
+            <Style TargetType="Entry" x:Key="s_right">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Grid.Column" Value="1"/>
+                <Setter Property="Margin" Value="10,0,0,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+   <StackLayout Padding="14,0" Margin="0,10,0,0">
+       <Button  Text="获取打卡截图(刷新)" ></Button>
+       <Button  Text="保存打卡截图到系统相册" ></Button>
+       <Button  Text="分享打卡截图到QQ"></Button>
+       <Label HorizontalOptions="Center"  TextColor="Red" FontSize="Body">注意: 在开始使用有关功能前,请完善设置.</Label>
+       <Image></Image>
+        <Label HorizontalOptions="Center" LineBreakMode="CharacterWrap" TextColor="Red" FontSize="Body" Text="只有在服务器每天定时打卡完成后截图才会更新! 也就是说,在每天定时自动打卡前获得的截图是昨天的."></Label>
+       <Label HorizontalOptions="Center" FontSize="36" Text="设置"></Label>
+       <Grid>
+           <Grid.RowDefinitions>
+               <RowDefinition/>
+               <RowDefinition/>
+           </Grid.RowDefinitions>
+           <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="Auto"/>
+               <ColumnDefinition/>
+           </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource s_label}" VerticalOptions="Center" Text="URL" FontSize="Large"></Label>
+            <Entry Style="{StaticResource s_right}" VerticalOptions="Center" Grid.Column="1" Margin="10,0,0,0"></Entry>
+
+           <Label Grid.Row="1" Style="{StaticResource s_label}" VerticalOptions="Center" Text="用户名" FontSize="Large"></Label>
+           <Entry Grid.Row="1" Style="{StaticResource s_right}" VerticalOptions="Center" Grid.Column="1" Margin="10,0,0,0"></Entry>
+            
+       </Grid>
+   </StackLayout>
 </ContentPage>
