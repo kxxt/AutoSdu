@@ -12,11 +12,11 @@ using Xamarin.Forms.Xaml;
 
 namespace AutoSdu.Views
 {
-	public partial class ItemsPage : ContentPage
+	public partial class MainPage : ContentPage
 	{
 		ItemsViewModel _viewModel;
 
-		public ItemsPage()
+		public MainPage()
 		{
 			InitializeComponent();
 

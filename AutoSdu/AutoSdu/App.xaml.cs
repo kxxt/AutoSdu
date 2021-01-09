@@ -1,5 +1,4 @@
-﻿using AutoSdu.Services;
-using AutoSdu.Views;
+﻿using AutoSdu.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +12,6 @@ namespace AutoSdu
 		{
 			InitializeComponent();
 
-			DependencyService.Register<MockDataStore>();
 			MainPage = new AppShell();
 		}
 
